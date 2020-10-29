@@ -52,7 +52,9 @@ def move():
 
     square(food.x, food.y, 9, 'green')
     update()
-    ontimer(move, 100)
+#Para aumentar la velocidad de Snake, el contador tiene que ser menor, para mas lento, mayor
+#El valor original es 100
+    ontimer(move, 60)
 
 setup(420, 420, 370, 0)
 hideturtle()
