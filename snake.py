@@ -13,7 +13,11 @@ from turtle import *
 from random import randrange
 from freegames import square, vector
 
-food = vector(0, 0)
+#La comida aparece exactamente en el centro
+# por lo tanto las coordenadas son  (0,0), si 
+# se modifican las coordenadas, cambiara la fruta.
+# Nota: Utilizar multiplos del 10.
+food = vector(20, 20)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
