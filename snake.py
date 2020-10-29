@@ -64,9 +64,13 @@ setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
 listen()
-onkey(lambda: change(10, 0), 'Right')
-onkey(lambda: change(-10, 0), 'Left')
-onkey(lambda: change(0, 10), 'Up')
-onkey(lambda: change(0, -10), 'Down')
+#En este caso, Snake ya responde a las flechas, no obstante
+#Para cambiar las direcciones, vasta con modificar las teclas
+#que se encuentran entre comillas.
+#Valores originales: Right, Left, Up, Down, respectivamente
+onkey(lambda: change(10, 0), 'd')
+onkey(lambda: change(-10, 0), 'a')
+onkey(lambda: change(0, 10), 'w')
+onkey(lambda: change(0, -10), 's')
 move()
 done()
