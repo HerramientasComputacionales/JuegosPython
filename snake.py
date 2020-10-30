@@ -14,7 +14,7 @@ from random import randrange
 from freegames import square, vector
 
 #La comida aparece exactamente en el centro
-# por lo tanto las coordenadas son  (0,0), si 
+# por lo tanto las coordenadas son  (0,0), si
 # se modifican las coordenadas, cambiara la fruta.
 # Nota: Utilizar multiplos del 10.
 food = vector(20, 20)
@@ -36,9 +36,23 @@ def move():
     head.move(aim)
 
     if not inside(head) or head in snake:
-        square(head.x, head.y, 9, 'red')
-        update()
-        return
+#Se coloco un if para diferennciar el choque del cuerpo
+#con el choque de una pared.
+#En esta area se debe modificar para los contornos
+        if head in snake:
+                square(head.x, head.y, 9, 'red')
+                update()
+                return
+        else:
+               if head.x == -200 or head.x == 190:
+                       square(head.x,head.y)
+                       update()
+               else:
+                       square(head.x,head.y)
+                       update()
+#Se elimino el return, de esta manera no se termina el juego
+#Al momento de llegar a los contornos.
+
 
     snake.append(head)
 
