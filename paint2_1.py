@@ -1,11 +1,7 @@
 """Paint, for drawing shapes.
 Exercises
-1. Add a color.
 1. Add a color. LISTO
 2. Complete circle.
-3. Complete rectangle.
-4. Complete triangle.
-5. Add width parameter.
 3. Complete rectangle. MEDIO LISTO
 4. Complete triangle. LISTO
 5. Add width parameter. LISTO
@@ -24,21 +20,26 @@ def line(start, end):
     up()
     goto(start.x, start.y)
     down()
-@@ -39,11 +39,49 @@ def circle(start, end):
+    goto(end.x,end.y)
+
+#Función para hacer un círculo
+def circle(start, end):
+    radio=(start.x , start.y)
+    up()
+    goto(start.x, start.y -radio)
+    down()
+    circle(radio)
 
 #Funcion especificamente para hacer un rectangulo con relleno color rojo 
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    pass  # TODO
+
     fillcolor='red'
     up()
-    begin_fill()
     goto(start.x,start.y)
 
-#Funcion especificamente para hacer un cuadrado 
-
-def square(start, end):
+    begin_fill()
     for count in range (2):
         forward(end.x - start.y)
         right(90)
@@ -46,14 +47,27 @@ def square(start, end):
         forward(end.y - start.x)
         right(90)
 
-    down()
+
     end_fill()
 
-#FUncion especificamente para hacer un triangulo
+#Funcion especificamente para hacer un cuadrado 
+
+def square(start, end):
+    up()
+    goto(start.x , start.y)
+    down()
+    begin_fill()
+
+    for count in range(4):
+        forward(end.x - start.y)
+        left(90)
+    end_fill()
+
+#Funcion especificamente para hacer un triangulo
 
 def triangle(start,end):
     "Draw triangle from start to end."
-    pass  # TODO
+
     fillcolor='red'
     up()
     goto(start.x,start.y)
@@ -86,7 +100,17 @@ def trapecio(start, end):
 
 def tap(x, y):
     "Store starting point or draw shape."
-@@ -62,18 +100,22 @@ def store(key, value):
+    start = state['start']
+
+    if start is None:
+        state['start'] = vector(x,y)
+    else:
+        shape = state['shape']
+        end = vector(x,y)
+        shape(start, end)
+        state['start'] = None
+
+def store(key, value):
     state[key] = value
 
 state = {'start': None, 'shape': line}
