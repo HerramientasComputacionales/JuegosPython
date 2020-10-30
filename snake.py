@@ -44,12 +44,21 @@ def move():
                 update()
                 return
         else:
-               if head.x == -200 or head.x == 190:
-                       square(head.x,head.y)
-                       update()
+               # En esta  seccion se procede a trasladar toda snake.
+               if head.x ==-200 or head.x ==190:
+                       if  head.x ==190:
+                               head.x =-200
+                               update()
+                       else:
+                               head.x =190
+                               update()
                else:
-                       square(head.x,head.y)
-                       update()
+                       if head.y ==190:
+                               head.y= -200
+                               update()
+                       else:
+                               head.y=190
+                               update()
 #Se elimino el return, de esta manera no se termina el juego
 #Al momento de llegar a los contornos.
 
