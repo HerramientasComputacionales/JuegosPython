@@ -1,8 +1,8 @@
 """Paint, for drawing shapes.
 Exercises
 1. Add a color. LISTO
-2. Complete circle.
-3. Complete rectangle. MEDIO LISTO
+2. Complete circle. LISTO
+3. Complete rectangle. LISTO
 4. Complete triangle. LISTO
 5. Add width parameter. LISTO
 """
@@ -10,52 +10,54 @@ Exercises
 from turtle import *
 from freegames import vector
 
-#Funcion especificamente para hacer una línea
+#Función especificamente para hacer una línea
 
-def line(start, end):
+def line(start, end): 
     "Draw line from start to end."
-    pensize=10
-    width(5)
+    pensize=10  #Grosor de la línea 
+    width(5) #Ancho
 
-    up()
-    goto(start.x, start.y)
-    down()
-    goto(end.x,end.y)
+    up() #Se levanta el lápiz 
+    goto(start.x, start.y) #Punto de inicio
+    down() #Baja a escribir el lápiz
+    goto(end.x,end.y) #Punto final
 
 #Función para hacer un círculo
 def circle(start, end):
-    radio=(start.x , start.y)
-    up()
-    goto(start.x, start.y -radio)
-    down()
-    circle(radio)
+    radio=math.sqrt(((end.x - start.x)**2)+((end.y-start.y)**2)) #Calcular radio
+    up() #Levantar lápiz
+    goto(start.x, (start.y -radio)) #Empieza en el punto bajo del círculo
+    down() #Baja el lápiz
+    begin_fill() #Desde aquí empieza a rellenar el círculo
+    circle(radio) #Dibuja el círculo
+    end_fill() #Termina de llenar
 
 #Funcion especificamente para hacer un rectangulo con relleno color rojo 
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
 
-    fillcolor='red'
-    up()
-    goto(start.x,start.y)
-
-    begin_fill()
+    up() #Levantar lápiz
+    goto(start.x,start.y) #Empieza en el punto principal
+    down() #Baja el lápiz
+    begin_fill() #Desde aquí empieza a rellenar
+    fillcolor='red' 
     for count in range (2):
-        forward(end.x - start.y)
-        right(90)
+        forward(end.x - start.y) 
+        right(90) #ángulo a la derecha en 90 grados
 
         forward(end.y - start.x)
-        right(90)
+        right(90) #ángulo a la derecha en 90 grados
 
 
-    end_fill()
+    end_fill() #Termina de rellenar
 
 #Funcion especificamente para hacer un cuadrado 
 
 def square(start, end):
-    up()
+    up()#Levantar lápiz
     goto(start.x , start.y)
-    down()
+    down()#Baja el lápiz
     begin_fill()
 
     for count in range(4):
@@ -69,9 +71,9 @@ def triangle(start,end):
     "Draw triangle from start to end."
 
     fillcolor='red'
-    up()
+    up()#Levantar lápiz
     goto(start.x,start.y)
-    down()
+    down()#Baja el lápiz
     begin_fill()
 
     for count in range (2):
@@ -84,10 +86,10 @@ def triangle(start,end):
 def trapecio(start, end):
     "Dibuja un trapecio from start to end."
     fillcolor="blue"
-    up()
+    up()#Levantar lápiz
     goto(start.x,start.y)
     right(60)
-    down()
+    down()#Baja el lápiz
     begin_fill()
 
     for count in range (3):
