@@ -48,14 +48,15 @@ def move():
     "Move ball and targets."
     if randrange(40) == 0:
         y = randrange(-150, 150)
-        target = vector(200-(9.8*len(Tiempo)), y)
+        target = vector(200, y)
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.35
+        target.x -= 0.50
+        target.y -= 9.81*0.001
 
     if inside(ball):
-        speed.y -= 0.50
+        speed.y -= 0.35
         ball.move(speed)
 
     dupe = targets.copy()
