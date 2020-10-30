@@ -9,6 +9,7 @@ Exercises
 #Librerias de importacion de datos
 from turtle import *
 from freegames import vector
+import math
 
 #Función especificamente para hacer una línea
 
