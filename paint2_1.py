@@ -24,7 +24,7 @@ def line(start, end):
     goto(end.x,end.y) #Punto final
 
 #Función para hacer un círculo
-def circle(start, end):
+def circleee(start, end):
     radio=math.sqrt(((end.x - start.x)**2)+((end.y-start.y)**2)) #Calcular radio
     up() #Levantar lápiz
     goto(start.x, (start.y -radio)) #Empieza en el punto bajo del círculo
@@ -134,7 +134,7 @@ onkey(lambda: color('red'),'R')
 onkey(lambda: color('light green'),'I')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circle), 'c')
+onkey(lambda: store('shape', circleee), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 onkey(lambda: store('shape', trapecio),'o')
