@@ -3,8 +3,8 @@
 Exercises
 
 1. Keep score by counting target hits.
-2. Vary the effect of gravity.
-3. Apply gravity to the targets.
+2. Vary the effect of gravity. LISTO
+3. Apply gravity to the targets. LISTO
 4. Change the speed of the ball. LISTO
 
 """
@@ -16,7 +16,6 @@ from freegames import vector
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
-Tiempo=[1, 2, 3, 4, 5]
 
 def tap(x, y):
     "Respond to screen tap."
