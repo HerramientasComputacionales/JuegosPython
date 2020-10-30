@@ -39,16 +39,23 @@ def move():
 #Se coloco un if para diferennciar el choque del cuerpo
 #con el choque de una pared.
 #En esta area se debe modificar para los contornos
+
         if head in snake:
                 square(head.x, head.y, 9, 'red')
                 update()
                 return
         else:
-               if head.x == -200 or head.x == 190:
-                       square(head.x,head.y)
+               if head.x == 190:
+                       head.x = -200
                        update()
-               else:
-                       square(head.x,head.y)
+               elif head.x == -200:
+                       head.x = 190
+                       update()
+               elif head.y == 190:
+                       head.y = -200
+                       update()
+               elif head.y == -200:
+                       head.y = 190
                        update()
 #Se elimino el return, de esta manera no se termina el juego
 #Al momento de llegar a los contornos.
